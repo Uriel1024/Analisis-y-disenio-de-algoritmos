@@ -29,7 +29,6 @@ int busqueda_ternaria(int array[], int target, int i ,int f){
     int tam = f - i;
     int t1 = i +  floor(tam / 3);
     int t2 = t1  * 2;
-    cout<<t1<<endl<<t2<<endl;
     if(array[t1] == target) return t1;
     if(array[t2] == target) return t2;
     
@@ -41,4 +40,4 @@ int busqueda_ternaria(int array[], int target, int i ,int f){
     }
   }
   return pos; 
-} 
+}
