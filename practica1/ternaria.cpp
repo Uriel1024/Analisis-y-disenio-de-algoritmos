@@ -16,32 +16,32 @@ int main(){
   cout<<"Ingresa el numero a buscar entre 1-10."<<endl;
   cin>>target;
   int f = (sizeof(array) / sizeof(array[0]));
-  if(target < array[0] || target > array[f-1]){
-    cout<<"El objetivo esta fuera del rango de numeros"<<endl;
+  int pos = busqueda_ternaria(array, target, 0, f);
+
+  if(pos != -1){
+    cout<<"La posicion de "<<target <<" en el arreglo es: "<< pos<<endl;
   }else{
-  int pos = busqueda_ternaria(array, target, 0, f); 
-  cout<<"La posicion de "<<target <<" en el arreglo es: "<< pos<<endl;
+    cout<<target<<"\t no se encuentra en el arreglo."<<endl;
   }
+  
    return 0;
-  }
+ }
 
 int busqueda_ternaria(int array[], int target, int i ,int f){
-  int pos = -1;
   if(i <= f){
     int t1 = i + ((f - i) * 1/3);
     int t2 = i + ((f - i) * 2/3);
-    cout<<t1<<endl<<t2<<endl;
     if(array[t1] == target) return t1;
     if(array[t2] == target) return t2;
     
     if(target < array[t1]){
-      pos =  busqueda_ternaria(array, target, i, t1);
+      return busqueda_ternaria(array, target, i, t2 - 1);
     }
     else if(target > array[t2]){
-      pos =  busqueda_ternaria(array,target, t2,f);
+      return busqueda_ternaria(array,target, t1 + 1,f);
     }else{
-      pos =  busqueda_ternaria(array, target, i + 1, f - 1);
+      return  busqueda_ternaria(array, target, i + 1, f - 1);
     } 
   }
-  return pos; 
+  return -1; 
 }
