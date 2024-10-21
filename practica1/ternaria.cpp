@@ -6,7 +6,6 @@ espacio de búsqueda.*/
 
 #include <iostream>
 using namespace std;
-#include <cmath>
 
 int busqueda_ternaria(int[], int, int ,int);
 
@@ -24,7 +23,7 @@ int main(){
   cout<<"La posicion de "<<target <<" en el arreglo es: "<< pos<<endl;
   }
    return 0;
-}
+  }
 
 int busqueda_ternaria(int array[], int target, int i ,int f){
   int pos = -1;
