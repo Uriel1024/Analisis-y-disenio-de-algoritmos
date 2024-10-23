@@ -1,4 +1,4 @@
-Algoritmo main
+ Algoritmo main
 	Escribir 'Ingresa el tamanio del arreglo'
 	Definir f Como Entero
 	Leer f
@@ -10,40 +10,44 @@ Algoritmo main
 	Escribir 'Ingresa el numero a buscar'
 	Definir target Como Entero
 	Leer target
-	Si target<array[1]O target>array[f] Entonces
-		Escribir 'El numero esta fuera del rango'
+	pos = posicion(array, target, 0 ,f)
+	si pos <> -1 Entonces
+		Escribir "La posicion del numero es: " pos
 	SiNo
-		pos = posicion(array,target,i,f)
-		Escribir "La posicion de " target " es: " pos
+		Escribir target	" no esta en la lista"
 	FinSi
 FinAlgoritmo
 
-Función pos <- posicion(array,target,i,f)
-Definir pos Como Entero
+FunciÃ³n pos <- posicion(array,target,i,f)
 si i <= f Entonces  	 
-	Definir t1, t2 Como Entero
-	t1 = i + ((f -i)* 1/3)
-	t2 = i + ((f-i)* 2/3)
+	Definir t1, t2 Como Entero 
+	t1 = (i + ((f -i)* 1/3))
+	t2 = (i + ((f-i)* 2/3))
+	
 	Escribir t1
 	Escribir t2
-	si array[t1] = target Entonces
+	
+	si array[t1] == target Entonces
 		pos <- t1
+		
 	FinSi
 	
-	si array[t2] = target Entonces
+	si array[t2] == target Entonces
 		pos <- t2
+		
 	FinSi
 	
 	si target < array[t1] Entonces
-		pos <- posicion(array, target, i ,t1 -1)
+		pos <- posicion(array, target, i ,t2 -1)
 	FinSi
 	
 	si target > array[t2] Entonces
-		pos <- posicion(array, target, t2 + 2, f)
+		pos <- posicion(array, target, t1 + 2, f)
 	SiNo
 		pos <- posicion(array, target, t1+ 1, t2-1)
 	FinSi
+	pos <- -1
 FinSi	
-FinFunción
+FinFunciÃ³n
 
 
