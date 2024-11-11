@@ -29,7 +29,7 @@ int cambio(int x, int denominacion[], int monedas[], int n){
   }
   if( x>= denominacion[n-1]){
     monedas[n-1] = floor(x / denominacion[n-1]);
-    x = x % denominacion[n-1];
+     = x % denominacion[n-1];
     cambio(x,  denominacion ,monedas, n-1);
   }else{
     cambio(x, denominacion, monedas,n-1);
