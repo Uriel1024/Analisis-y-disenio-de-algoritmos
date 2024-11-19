@@ -1,6 +1,5 @@
 #include <iostream>
 #include <ostream>
-#include <tuple>
 using namespace std;
 #include <cmath>
 #include <ctime>
